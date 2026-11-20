@@ -34,3 +34,32 @@ export const BAGS = [
   { t: 'Backpacks', d: 'Comfortable backpacks for study and work.' }
 ]
 export const REPAIRS = ['Bag Repair', 'Luggage Repair', 'Leather Item Maintenance']
+
+// ---- Bag photo galleries ----
+// To add a bag: drop a WebP into src/assets/bags/ and add one line below (file = file name without .webp).
+const bagFiles = import.meta.glob('./assets/bags/*.webp', { eager: true, query: '?url', import: 'default' })
+const bagImg = f => bagFiles[`./assets/bags/${f}.webp`]
+const mk = (file, t, alt) => ({ t, img: bagImg(file), alt: alt || `${t} at O.M.S Bags & Footwear, Tambaram` })
+export const SCHOOL_BAGS = [
+  mk('tycoon-blue-school-bag-tambaram', 'Tycoon School Bag', 'Blue and black Tycoon school bag with multiple zip pockets, Tambaram'),
+  mk('nike-blue-backpack-tambaram', 'Blue Sports Backpack', 'Blue and black sports backpack with top handle, Tambaram'),
+  mk('black-orange-backpack-tambaram', 'Black & Orange Backpack', 'Large black backpack with orange zips and side buckles, Tambaram'),
+  mk('naruto-print-school-bag-tambaram', 'Naruto Print School Bag', 'Black school bag with Naruto anime print, Tambaram'),
+  mk('one-piece-print-school-bag-tambaram', 'One Piece Print School Bag', 'Black school bag with One Piece anime print, Tambaram')
+]
+export const KIDS_BAGS = [
+  mk('kids-plush-spiderman-backpack-tambaram', 'Spiderman Kids Bag', 'Red and blue plush Spiderman kids backpack, Tambaram'),
+  mk('kids-plush-superman-backpack-tambaram', 'Superman Kids Bag', 'Blue plush Superman kids backpack, Tambaram'),
+  mk('kids-plush-batman-backpack-tambaram', 'Batman Kids Bag', 'Grey and yellow plush Batman kids backpack, Tambaram'),
+  mk('kids-plush-ironman-backpack-tambaram', 'Ironman Kids Bag', 'Red plush Ironman kids backpack, Tambaram'),
+  mk('kids-plush-captain-america-backpack-tambaram', 'Captain America Kids Bag', 'Blue plush Captain America shield kids backpack, Tambaram'),
+  mk('kids-plush-pikachu-backpack-tambaram', 'Pikachu Kids Bag', 'Yellow plush Pikachu kids backpack, Tambaram'),
+  mk('kids-plush-doraemon-backpack-tambaram', 'Doraemon Kids Bag', 'Light blue plush Doraemon kids backpack, Tambaram'),
+  mk('kids-plush-jojo-backpack-tambaram', 'JoJo Kids Bag', 'Blue plush JoJo kids backpack, Tambaram'),
+  mk('kids-plush-luigi-backpack-tambaram', 'Luigi Kids Bag', 'Green plush Luigi kids backpack, Tambaram'),
+  mk('kids-plush-peppa-backpack-tambaram', 'Peppa Kids Bag', 'Pink plush Peppa pig kids backpack, Tambaram'),
+  mk('kids-plush-minnie-backpack-tambaram', 'Minnie Kids Bag', 'Pink plush Minnie kids backpack, Tambaram'),
+  mk('kids-plush-barbie-backpack-tambaram', 'Barbie Kids Bag', 'Pink plush Barbie kids backpack, Tambaram'),
+  mk('kids-plush-blue-baby-shark-backpack-tambaram', 'Baby Shark Kids Bag (Blue)', 'Blue plush Baby Shark kids backpack, Tambaram'),
+  mk('kids-plush-yellow-baby-shark-backpack-tambaram', 'Baby Shark Kids Bag (Yellow)', 'Yellow plush Baby Shark kids backpack, Tambaram')
+]
