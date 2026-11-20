@@ -27,18 +27,18 @@ export const FOOTWEAR = [
   { t: 'Casual Footwear', d: 'Relaxed styles for outings and weekends.', img: casual },
   { t: 'Formal Footwear', d: 'Polished options for work and occasions.', img: formal }
 ]
-export const BAGS = [
-  { t: 'School Bags', d: 'Carry books and essentials to class.' },
-  { t: 'Travel Bags', d: 'Bags for trips, short and long.' },
-  { t: 'Everyday Bags', d: 'Practical carriers for daily errands.' },
-  { t: 'Backpacks', d: 'Comfortable backpacks for study and work.' }
-]
 export const REPAIRS = ['Bag Repair', 'Luggage Repair', 'Leather Item Maintenance']
 
 // ---- Bag photo galleries ----
 // To add a bag: drop a WebP into src/assets/bags/ and add one line below (file = file name without .webp).
 const bagFiles = import.meta.glob('./assets/bags/*.webp', { eager: true, query: '?url', import: 'default' })
 const bagImg = f => bagFiles[`./assets/bags/${f}.webp`]
+export const BAGS = [
+  { t: 'School Bags', d: 'Carry books and essentials to class.', img: bagImg('tycoon-blue-school-bag-tambaram') },
+  { t: 'Travel Bags', d: 'Bags for trips, short and long.', img: bagImg('black-orange-backpack-tambaram') },
+  { t: 'Everyday Bags', d: 'Practical carriers for daily errands.', img: bagImg('one-piece-print-school-bag-tambaram') },
+  { t: 'Backpacks', d: 'Comfortable backpacks for study and work.', img: bagImg('nike-blue-backpack-tambaram') }
+]
 const mk = (file, t, alt) => ({ t, img: bagImg(file), alt: alt || `${t} at O.M.S Bags & Footwear, Tambaram` })
 export const SCHOOL_BAGS = [
   mk('tycoon-blue-school-bag-tambaram', 'Tycoon School Bag', 'Blue and black Tycoon school bag with multiple zip pockets, Tambaram'),
