@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Menu, X, Phone, MessageCircle, MapPin, Footprints, ShoppingBag, Wrench, Layers, Store, Luggage, Briefcase, Backpack, Scissors, Gem } from 'lucide-react'
 import shopSign from './assets/oms-bags-footwear-shop-sign-santhosapuram.webp'
 import shelves from './assets/shoe-shelves-bags-footwear-santhosapuram.webp'
-import { BUSINESS as B, FOOTWEAR, BAGS, REPAIRS, MORE } from './config.js'
+import { BUSINESS as B, FOOTWEAR, BAGS, REPAIRS, MORE, SCHOOL_BAGS, KIDS_BAGS } from './config.js'
 
 const NAV = [['Home', '#home'], ['Footwear', '#footwear'], ['Bags', '#bags'], ['Repair Services', '#repair'], ['About Us', '#about'], ['Contact', '#contact']]
 const Btn = ({ href, kind = 'primary', children, ...p }) => <a className={`btn ${kind}`} href={href} {...p}>{children}</a>
@@ -35,6 +35,7 @@ function Hero() {
   )
 }
 
+const Gallery = ({ items }) => <div className="gallery">{items.map(m => <figure key={m.t}><div className="gph"><img src={m.img} alt={m.alt} width="540" height="840" loading="lazy" /></div><figcaption>{m.t}</figcaption></figure>)}</div>
 const Cat = ({ icon: I, t, d, h }) => <a className="cat" href={h}><I size={40} /><h3>{t}</h3><p>{d}</p></a>
 const Card = ({ icon: I, t, d, tone, img }) => <article className={`card ${tone}`}><div className="ph">{img ? <img src={img} alt={`${t} at O.M.S Bags & Footwear, Tambaram`} loading="lazy" /> : <I size={44} />}</div><h3>{t}</h3><p>{d}</p></article>
 
@@ -61,6 +62,10 @@ export default function App() {
         <section id="bags" className="sec">
           <h2>Bags Collection</h2><p className="lead">School bags and travel bags in Tambaram, plus everyday carriers.</p>
           <div className="grid4">{BAGS.map((x, i) => <Card key={x.t} icon={[Backpack, Luggage, Briefcase, ShoppingBag][i]} tone="orange" {...x} />)}</div>
+          <h3 className="sub">School Bags &amp; Backpacks</h3>
+          <Gallery items={SCHOOL_BAGS} />
+          <h3 className="sub">Kids&apos; Bags</h3>
+          <Gallery items={KIDS_BAGS} />
         </section>
         <section id="repair" className="sec navy">
           <h2>Give Your Bags a Second Life.</h2>
